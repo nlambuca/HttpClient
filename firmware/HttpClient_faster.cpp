@@ -162,7 +162,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     #endif
 
     // clear response buffer
-    memset(&buffer[0], 0, sizeof(buffer));
+   //nuno memset(&buffer[0], 0, sizeof(buffer));
 
 
     //
