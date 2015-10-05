@@ -1,6 +1,6 @@
 #include "HttpClient_faster.h"
 
-static const uint16_t TIMEOUT = 10000; // Allow maximum 0.5 between data packets.
+static const uint16_t TIMEOUT = 1000; // Allow maximum 0.5 between data packets.
 
 /**
 * Constructor.
@@ -236,7 +236,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
         // Unless there has been an error or timeout wait 200ms to allow server
         // to respond or close connection.
         if (!error && !timeout) {
-            delay(500);
+            delay(100);
         }
     } while (client.connected() && !timeout && !error);
 
@@ -249,7 +249,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     Serial.println("ms).");
     #endif
     client.stop();
-
+/*
     String raw_response(buffer);
 
     // Not super elegant way of finding the status code, but it works.
@@ -271,5 +271,5 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     // Return the entire message body from bodyPos+4 till end.
     aResponse.body = "";
     aResponse.body += raw_response.substring(bodyPos+4);
-    aResponse.status = atoi(statusCode.c_str());
+    aResponse.status = atoi(statusCode.c_str());*/
 }
