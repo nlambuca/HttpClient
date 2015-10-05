@@ -60,7 +60,7 @@ public:
     * Public references to variables.
     */
     TCPClient client;
-    char buffer[512/*1024*/];
+    char buffer[2048/*1024*/];
 
     /**
     * Constructor.
