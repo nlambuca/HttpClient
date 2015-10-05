@@ -1,6 +1,6 @@
 #include "HttpClient_faster.h"
 
-static const uint16_t TIMEOUT = 500; // Allow maximum 0.5 between data packets.
+static const uint16_t TIMEOUT = 10000; // Allow maximum 0.5 between data packets.
 
 /**
 * Constructor.
@@ -37,6 +37,10 @@ void HttpClient::sendHeader(const char* aHeaderName, const int aHeaderValue)
     Serial.print(": ");
     Serial.println(aHeaderValue);
     #endif
+}
+void HttpClient::stop(void)
+{
+        client.stop();
 }
 
 void HttpClient::sendHeader(const char* aHeaderName)
@@ -232,7 +236,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
         // Unless there has been an error or timeout wait 200ms to allow server
         // to respond or close connection.
         if (!error && !timeout) {
-            delay(200);
+            delay(50);
         }
     } while (client.connected() && !timeout && !error);
 
