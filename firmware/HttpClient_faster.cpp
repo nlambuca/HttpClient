@@ -71,7 +71,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     }   else {
         connected = client.connect(aRequest.ip, aRequest.port);
     }
-
+    delay(200);
     #ifdef LOGGING
     if (connected) {
         if(aRequest.hostname!=NULL) {
