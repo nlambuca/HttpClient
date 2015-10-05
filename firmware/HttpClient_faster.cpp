@@ -143,6 +143,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
 
     // Empty line to finish headers
     client.println();
+    client.println();
     client.flush();
 
     //
@@ -174,7 +175,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     // to read data.
     // The loop exits when the connection is closed, or if there is a
     // timeout or an error.
-
+/*
     unsigned int bufferPosition = 0;
     unsigned long lastRead = millis();
     unsigned long firstRead = millis();
@@ -249,7 +250,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     Serial.println("ms).");
     #endif
     client.stop();
-/*
+*//*
     String raw_response(buffer);
 
     // Not super elegant way of finding the status code, but it works.
