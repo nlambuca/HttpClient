@@ -1,6 +1,6 @@
 #include "HttpClient.h"
 
-static const uint16_t TIMEOUT = 500; // Allow maximum 5s between data packets.
+static const uint16_t TIMEOUT = 500; // Allow maximum 0.5 between data packets.
 
 /**
 * Constructor.
