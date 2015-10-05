@@ -71,6 +71,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     }   else {
         connected = client.connect(aRequest.ip, aRequest.port);
     }
+    connected = client.status();
     delay(200);
     #ifdef LOGGING
     if (connected) {
@@ -103,7 +104,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     client.print(" ");
     client.print(aRequest.path);
     client.print(" HTTP/1.0\r\n");
-
+/*
     #ifdef LOGGING
     Serial.println("HttpClient>\tStart of HTTP Request.");
     Serial.print(aHttpMethod);
@@ -140,7 +141,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
             i++;
         }
     }
-
+*/
     // Empty line to finish headers
     client.println();
     client.println();
@@ -149,7 +150,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     //
     // Send HTTP Request Body
     //
-
+    /*
     if (aRequest.body != NULL) {
         client.println(aRequest.body);
 
@@ -161,7 +162,7 @@ void HttpClient::request(http_request_t &aRequest, http_response_t &aResponse, h
     #ifdef LOGGING
     Serial.println("HttpClient>\tEnd of HTTP Request.");
     #endif
-
+    */
     // clear response buffer
    //nuno memset(&buffer[0], 0, sizeof(buffer));
 
